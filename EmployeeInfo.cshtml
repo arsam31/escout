@@ -1,0 +1,103 @@
+﻿@model eScout.Models.EmployeeInfo
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Employee Information Form</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+
+            <p class="col-md-2">Name</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.emp_name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.emp_name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p class="col-md-2">Email Address</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.emp_email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.emp_email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p class="col-md-2">Employee Number</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.emp_number, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.emp_number, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p class="col-md-2">Date Of Join</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.doj, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.doj, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p class="col-md-2">Date Of Leave</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.dol, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.dol, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p class="col-md-2">Cell Number</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.cell_number, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.cell_number, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+              <p class="col-md-2">Is Active</p>
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.is_active)
+                    @Html.ValidationMessageFor(model => model.is_active, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p class="col-md-2">Date Of Birth</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.dob, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.dob, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p class="col-md-2">Designation ID</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.designation_id, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.designation_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+        <p>@ViewBag.Message</p>
+    </div>
+}
+
+<div>
+   
+    @Html.ActionLink("Back To Home", "Index", "Home")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
